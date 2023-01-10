@@ -10,7 +10,7 @@ SOAPdenovo-63mer scaff -p 20 -L 200 -g K.39 1> scaff.log 2>scaff.err
 GapCloser -a $line.k.39.scafSeq -b scaffold.cfg -o gap_remove.scatigs
 2bwt-builder scatigs
 
-soap -a ${sample}.1.clean.fq -b ${sample}.2.clean.fq -D ${sample}.gap_remove.scatigs.index -o blast -u ${sample}.unmap -m 200 -2 Single_output
+soap -a ${sample}.1.cl.fq -b ${sample}.2.cl.fq -D ${sample}.gap_remove.contigs.index -o blast -u ${sample}.unmap -m 200 -2 Single_output
 
 ## gene prediction
 NR database
