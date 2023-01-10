@@ -13,7 +13,8 @@ GapCloser -a $line.k.39.scafSeq -b scaffold.cfg -o gap_remove.scatigs
 soap -a ${sample}.1.cl.fq -b ${sample}.2.cl.fq -D ${sample}.gap_remove.contigs.index -o blast -u ${sample}.unmap -m 200 -2 Single_output
 
 ## gene prediction
-NR database
+diamond blastp --query ../5_calculate_reads_counts/unigene.mix.liu.faa --db NR.gi/nr --outfmt 6 --threads 40 --out NR.blast --evalue 1e-5 --block-size 20.0
+python fil_evalue.py NR.blast -o NR.blast.filter
 
 ## annotation
 hmmscan contig.results > CAZyme.dbCAN
